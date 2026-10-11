@@ -1,0 +1,6 @@
+include thresholds.toml
+include scripts/build_resources.py
+recursive-include questions *.yaml
+recursive-include packs *.json *.toml
+recursive-include assets *.html *.txt
+recursive-include _vendor/jevkit LICENSE VERSION

@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://jev-remix.local/contracts/face-transfer-preview.schema.json",
+  "type": "object",
+  "properties": {
+    "version": {
+      "const": 1
+    },
+    "backend": {
+      "type": "string"
+    },
+    "items": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "uploads_images": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "version",
+    "backend"
+  ],
+  "additionalProperties": true
+}

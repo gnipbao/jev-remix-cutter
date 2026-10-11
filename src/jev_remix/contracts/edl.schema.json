@@ -1,0 +1,63 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://jev-remix.local/contracts/edl.schema.json",
+  "type": "object",
+  "properties": {
+    "version": {
+      "enum": [
+        1,
+        2
+      ]
+    },
+    "schema_version": {
+      "enum": [
+        1,
+        2
+      ]
+    },
+    "fps": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "items": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "source": {
+            "type": "string"
+          },
+          "in_us": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "out_us": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "start_f": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "end_f": {
+            "type": "integer",
+            "minimum": 1
+          }
+        },
+        "required": [
+          "source",
+          "in_us",
+          "out_us",
+          "start_f",
+          "end_f"
+        ],
+        "additionalProperties": true
+      }
+    }
+  },
+  "required": [
+    "fps",
+    "items"
+  ],
+  "additionalProperties": true
+}

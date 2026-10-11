@@ -1,0 +1,74 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://jev-remix.local/contracts/face-plan.schema.json",
+  "type": "object",
+  "properties": {
+    "version": {
+      "const": 1
+    },
+    "purpose": {
+      "type": "string"
+    },
+    "platform": {
+      "type": "string"
+    },
+    "items": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "cluster": {
+            "type": "string"
+          },
+          "mode": {
+            "enum": [
+              "keep",
+              "blur",
+              "anonymize",
+              "swap"
+            ]
+          },
+          "subject": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "target": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "consents": {
+            "type": "array",
+            "items": {
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          },
+          "full_frame": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "cluster",
+          "mode"
+        ],
+        "additionalProperties": true
+      }
+    },
+    "snapshot": {
+      "type": "object"
+    }
+  },
+  "required": [
+    "version",
+    "purpose",
+    "platform",
+    "items"
+  ],
+  "additionalProperties": true
+}

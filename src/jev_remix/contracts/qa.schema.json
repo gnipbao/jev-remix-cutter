@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://jev-remix.local/contracts/qa.schema.json",
+  "type": "object",
+  "properties": {
+    "version": {
+      "const": 1
+    },
+    "findings": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "metric": {
+            "type": "string"
+          },
+          "level": {
+            "enum": [
+              "error",
+              "warn",
+              "pass",
+              "info"
+            ]
+          },
+          "detail": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "level"
+        ],
+        "additionalProperties": true
+      }
+    },
+    "metrics": {
+      "type": "object"
+    },
+    "ok": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "findings"
+  ],
+  "additionalProperties": true
+}

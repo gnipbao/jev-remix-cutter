@@ -1,0 +1,73 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://jev-remix.local/contracts/music.schema.json",
+  "type": "object",
+  "properties": {
+    "version": {
+      "const": 1
+    },
+    "path": {
+      "type": "string"
+    },
+    "fingerprint": {
+      "type": "object"
+    },
+    "duration_us": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "beats": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "time_us": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "frame": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "strength": {
+            "type": "number"
+          },
+          "downbeat": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "time_us",
+          "frame"
+        ],
+        "additionalProperties": true
+      }
+    },
+    "sections": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "confidence": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "bpm": {
+      "type": [
+        "number",
+        "null"
+      ]
+    }
+  },
+  "required": [
+    "version",
+    "path",
+    "fingerprint",
+    "duration_us",
+    "beats",
+    "confidence"
+  ],
+  "additionalProperties": true
+}

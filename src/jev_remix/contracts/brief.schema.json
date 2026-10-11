@@ -1,0 +1,74 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://jev-remix.local/contracts/brief.schema.json",
+  "type": "object",
+  "properties": {
+    "version": {
+      "const": 1
+    },
+    "fps": {
+      "enum": [
+        24,
+        25,
+        30,
+        50,
+        60
+      ]
+    },
+    "format": {
+      "enum": [
+        "9:16",
+        "16:9",
+        "1:1"
+      ]
+    },
+    "width": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "height": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "target_seconds": {
+      "type": "number",
+      "exclusiveMinimum": 0,
+      "maximum": 300
+    },
+    "pack": {
+      "type": "string"
+    },
+    "mode": {
+      "enum": [
+        "music",
+        "narration"
+      ]
+    },
+    "music_from_source_audio": {
+      "type": "boolean"
+    },
+    "purpose": {
+      "type": "string"
+    },
+    "platform": {
+      "type": "string"
+    },
+    "feedback": {
+      "type": "object"
+    },
+    "uploads": {
+      "type": "object"
+    }
+  },
+  "required": [
+    "version",
+    "fps",
+    "format",
+    "width",
+    "height",
+    "target_seconds",
+    "pack",
+    "mode"
+  ],
+  "additionalProperties": true
+}

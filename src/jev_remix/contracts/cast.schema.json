@@ -1,0 +1,87 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://jev-remix.local/contracts/cast.schema.json",
+  "type": "object",
+  "properties": {
+    "version": {
+      "const": 1
+    },
+    "items": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "slot": {
+            "type": "string"
+          },
+          "shot_id": {
+            "type": "string"
+          },
+          "source": {
+            "type": "string"
+          },
+          "in_us": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "out_us": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "out": {
+            "type": "object",
+            "properties": {
+              "start_f": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "end_f": {
+                "type": "integer",
+                "minimum": 1
+              }
+            },
+            "required": [
+              "start_f",
+              "end_f"
+            ],
+            "additionalProperties": true
+          },
+          "fused": {
+            "type": "number"
+          },
+          "alternatives": {
+            "type": "array",
+            "items": {
+              "type": "object"
+            }
+          },
+          "locked": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "slot",
+          "shot_id",
+          "source",
+          "in_us",
+          "out_us",
+          "out"
+        ],
+        "additionalProperties": true
+      }
+    },
+    "dependencies": {
+      "type": "object"
+    },
+    "mock": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "version",
+    "items",
+    "dependencies",
+    "mock"
+  ],
+  "additionalProperties": true
+}

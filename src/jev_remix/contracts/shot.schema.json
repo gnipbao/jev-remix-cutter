@@ -1,0 +1,34 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://jev-remix.local/contracts/shot.schema.json",
+  "type": "object",
+  "properties": {
+    "shot_id": {
+      "type": "string"
+    },
+    "source": {
+      "type": "string"
+    },
+    "start_us": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "end_us": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "features": {
+      "type": "object"
+    },
+    "contact": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "shot_id",
+    "source",
+    "start_us",
+    "end_us"
+  ],
+  "additionalProperties": true
+}

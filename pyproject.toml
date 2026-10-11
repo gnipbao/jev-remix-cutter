@@ -1,0 +1,34 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "jev-remix-cutter"
+version = "0.1.0"
+description = "Evidence-led local remix Skill and deterministic Python CLI"
+requires-python = ">=3.11"
+license = "MIT"
+dependencies = ["jsonschema>=4.26,<5", "PyYAML>=6.0,<7"]
+
+[project.optional-dependencies]
+core = ["numpy>=2.2,<2.3", "opencv-python>=4.12,<5", "soundfile>=0.14,<1", "librosa>=1.0,<2", "scenedetect>=0.7.1,<0.8"]
+asr = ["faster-whisper>=1.0"]
+quality = ["torch>=2.0", "torchvision>=0.15"]
+vlm = []
+
+[project.scripts]
+remix = "jev_remix.cli:main"
+
+[project.urls]
+Repository = "https://github.com/gnipbao/jev-remix-cutter"
+Issues = "https://github.com/gnipbao/jev-remix-cutter/issues"
+
+[tool.setuptools.packages.find]
+where = ["src", "_vendor"]
+
+[tool.setuptools.package-data]
+jev_remix = ["contracts/*.json", "_data/thresholds.toml", "_data/questions/*.yaml", "_data/packs/tracks/*.json", "_data/packs/formats/*.json", "_data/packs/platform-profiles/*.toml", "_data/assets/*.html", "_data/assets/*.txt"]
+jevkit = ["LICENSE", "VERSION"]
+
+[tool.setuptools.cmdclass]
+build_py = "scripts.build_resources.BuildPy"

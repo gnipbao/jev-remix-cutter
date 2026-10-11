@@ -1,0 +1,79 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://jev-remix.local/contracts/sources.schema.json",
+  "type": "object",
+  "properties": {
+    "version": {
+      "const": 1
+    },
+    "items": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "path": {
+            "type": "string"
+          },
+          "fingerprint": {
+            "type": "object"
+          },
+          "license": {
+            "enum": [
+              "own",
+              "licensed",
+              "unknown"
+            ]
+          },
+          "media": {
+            "type": "object",
+            "properties": {
+              "duration_us": {
+                "type": "integer",
+                "minimum": 1
+              },
+              "width": {
+                "type": "integer",
+                "minimum": 1
+              },
+              "height": {
+                "type": "integer",
+                "minimum": 1
+              },
+              "fps": {
+                "type": "number"
+              },
+              "audio": {
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "duration_us",
+              "width",
+              "height"
+            ],
+            "additionalProperties": true
+          },
+          "self_shot": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "id",
+          "path",
+          "fingerprint",
+          "license",
+          "media"
+        ],
+        "additionalProperties": true
+      }
+    }
+  },
+  "required": [
+    "version",
+    "items"
+  ],
+  "additionalProperties": true
+}

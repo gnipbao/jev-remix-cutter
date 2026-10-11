@@ -1,0 +1,57 @@
+[sense]
+scene_threshold = 27.0
+min_shot_frames = 6
+proxy_height = 540
+max_sources = 50
+max_source_seconds = 18000
+max_cards = 600
+
+[music]
+confidence_min = 0.45
+silence_db = -45.0
+crossfade_ms = 35
+
+[judge]
+max_requests = 3000
+workers = 4
+max_workers = 8
+top_k = 20
+pair_k = 5
+min_slot_fit = 0.6666666667
+max_excluded = 0.5
+
+[cast]
+beam = 32
+reuse_penalty = 0.25
+same_source_penalty = 0.05
+min_speed = 0.25
+max_speed = 4.0
+slot_fit_weight = 0.55
+mood_weight = 0.20
+character_weight = 0.25
+transition_weight = 0.20
+
+[qa]
+beat_error_frames = 1
+max_flash_per_second = 3
+max_change_interval_s = 4.0
+target_lufs = -14.0
+max_true_peak = -1.0
+encoder_peak_margin = 0.5
+loudness_tolerance = 1.0
+max_delta_e = 35.0
+
+[face]
+tracking_gap_frames = 3
+failure_ratio = 0.10
+minor_age_buffer = 21
+deceptive_intent_max = 0.5
+
+[planning]
+min_slot_frames = 6
+max_slot_seconds = 4.0
+max_request_bytes = 30000
+
+[verbalize]
+duration_short_s = 0.8
+duration_long_s = 2.0

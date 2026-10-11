@@ -1,0 +1,108 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://jev-remix.local/contracts/consent.schema.json",
+  "type": "object",
+  "properties": {
+    "identity_id": {
+      "type": "string"
+    },
+    "display_name": {
+      "type": "string"
+    },
+    "relation": {
+      "enum": [
+        "self",
+        "employee",
+        "model",
+        "other"
+      ]
+    },
+    "roles": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "enum": [
+          "subject",
+          "target"
+        ]
+      }
+    },
+    "doc": {
+      "type": "object",
+      "properties": {
+        "file": {
+          "type": "string"
+        },
+        "sha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        }
+      },
+      "required": [
+        "file",
+        "sha256"
+      ],
+      "additionalProperties": true
+    },
+    "scope": {
+      "type": "object",
+      "properties": {
+        "modes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "purposes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "platforms": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "projects": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "expires": {
+          "type": "string",
+          "format": "date"
+        }
+      },
+      "required": [
+        "modes",
+        "purposes",
+        "platforms",
+        "projects",
+        "expires"
+      ],
+      "additionalProperties": true
+    },
+    "refs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "revoked": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "identity_id",
+    "display_name",
+    "roles",
+    "doc",
+    "scope",
+    "refs",
+    "revoked"
+  ],
+  "additionalProperties": true
+}

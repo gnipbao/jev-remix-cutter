@@ -1,0 +1,48 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://jev-remix.local/contracts/feedback.schema.json",
+  "type": "object",
+  "properties": {
+    "version": {
+      "const": 1
+    },
+    "actions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "enum": [
+              "swap",
+              "lock",
+              "exclude"
+            ]
+          },
+          "slot": {
+            "type": "string"
+          },
+          "shot_id": {
+            "type": "string"
+          },
+          "rank": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "locked": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "type",
+          "slot"
+        ],
+        "additionalProperties": true
+      }
+    }
+  },
+  "required": [
+    "version",
+    "actions"
+  ],
+  "additionalProperties": true
+}

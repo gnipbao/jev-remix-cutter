@@ -1,0 +1,110 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://jev-remix.local/contracts/originality.schema.json",
+  "type": "object",
+  "properties": {
+    "version": {
+      "const": 1
+    },
+    "profile": {
+      "type": "string"
+    },
+    "metrics": {
+      "type": "object",
+      "properties": {
+        "contribution_ratio": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "longest_raw_run_s": {
+          "type": "number",
+          "minimum": 0
+        },
+        "order_preservation": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "source_audio_ratio": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "max_source_share": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "restructure": {
+          "type": "boolean"
+        },
+        "license_coverage": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "catalog_violations": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        }
+      },
+      "required": [
+        "contribution_ratio",
+        "longest_raw_run_s",
+        "order_preservation",
+        "source_audio_ratio",
+        "max_source_share",
+        "restructure",
+        "license_coverage",
+        "catalog_violations"
+      ],
+      "additionalProperties": true
+    },
+    "findings": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "metric": {
+            "type": "string"
+          },
+          "level": {
+            "enum": [
+              "warn",
+              "error",
+              "info"
+            ]
+          },
+          "where": {
+            "type": [
+              "object",
+              "array"
+            ]
+          },
+          "suggest": {
+            "type": "string"
+          },
+          "action": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "metric",
+          "level",
+          "suggest",
+          "action"
+        ],
+        "additionalProperties": true
+      }
+    }
+  },
+  "required": [
+    "profile",
+    "metrics",
+    "findings"
+  ],
+  "additionalProperties": true
+}

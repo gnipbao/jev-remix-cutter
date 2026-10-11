@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://jev-remix.local/contracts/aigc-label.schema.json",
+  "type": "object",
+  "properties": {
+    "version": {
+      "const": 1
+    },
+    "explicit": {
+      "type": "object"
+    },
+    "implicit": {
+      "type": "object"
+    },
+    "standard": {
+      "type": "string"
+    },
+    "verified": {
+      "const": true
+    }
+  },
+  "required": [
+    "version",
+    "explicit",
+    "implicit",
+    "standard",
+    "verified"
+  ],
+  "additionalProperties": true
+}

@@ -1,0 +1,63 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://jev-remix.local/contracts/slots.schema.json",
+  "type": "object",
+  "properties": {
+    "version": {
+      "const": 1
+    },
+    "fps": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "duration_frames": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "items": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "start_f": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "end_f": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "need": {
+            "type": "string"
+          },
+          "mood": {
+            "type": "string"
+          },
+          "section": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "start_f",
+          "end_f",
+          "need"
+        ],
+        "additionalProperties": true
+      }
+    },
+    "dependencies": {
+      "type": "object"
+    }
+  },
+  "required": [
+    "version",
+    "fps",
+    "duration_frames",
+    "items"
+  ],
+  "additionalProperties": true
+}

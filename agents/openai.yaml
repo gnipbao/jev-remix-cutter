@@ -1,0 +1,6 @@
+interface:
+  display_name: "Jev Remix Cutter"
+  short_description: "按音乐或原创旁白重组视频素材，提供可审片的本地混剪与原创度报告"
+  default_prompt: "使用 $jev-remix-cutter 将我的已有素材按音乐卡点剪成一条可审片的短片。"
+policy:
+  allow_implicit_invocation: true

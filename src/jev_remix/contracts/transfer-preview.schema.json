@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://jev-remix.local/contracts/transfer-preview.schema.json",
+  "type": "object",
+  "properties": {
+    "version": {
+      "const": 1
+    },
+    "destination": {
+      "type": "string"
+    },
+    "requests": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "request_count": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "model": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "destination",
+    "requests",
+    "request_count",
+    "model"
+  ],
+  "additionalProperties": true
+}

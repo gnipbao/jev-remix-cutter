@@ -1,0 +1,7 @@
+# Suggestions only; no undocumented platform enforcement rules are encoded here.
+[originality]
+contribution_min = 0.60
+longest_raw_max_s = 8.0
+order_max = 0.70
+source_audio_max = 0.50
+source_share_max = 0.80
